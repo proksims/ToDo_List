@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" translate="no"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app">
+        <h2>ToDo List <img src="images/icon.png" alt="icon" /></h2>
+
+        <div class="row">
+          <input type="text" id="input" placeholder="Add text" />
+          <button id="button" onclick="addTask()">+</button>
+        </div>
+
+        <ul id="list">
+          <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li> -->
+        </ul>
+
+        <div class="clear_container">
+          <!-- <button id = 'clear_id' class="button" onclick="clearTask()">clear</button> -->
+        </div>
+      </div>
+    </div>
+
+    <div id="clear_dialog" class="hidden">
+      <!-- <h2>Подтверждение очистки</h2> -->
+      <h2>Are you sure?</h2>
+      <p>clear all?</p>
+      <div class="container_button">
+        <button id="clear_yes">yes</button>
+        <button id="clear_no">no</button>
+      </div>
+    </div>
+  </body>
+</html>

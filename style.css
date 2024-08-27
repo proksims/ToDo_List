@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Popins", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --app-first: black;
+  --app-second: white;
+  --app-accent: #555;
+  --input: #edeef0;
+  --button: #ff5945;
+  --button_hover: #ff5845d8;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    background-color: #45ceef;
+  }
+  25% {
+    background-color: #e0d899;
+  }
+  50% {
+    background-color: #b9e2c3;
+  }
+  75% {
+    background-color: #99d2e4;
+  }
+  100% {
+    background-color: #cab390;
+  }
+}
+
+body {
+  -webkit-animation: pulse 70s infinite alternate;
+  /* background:
+    linear-gradient(limegreen, transparent),
+    linear-gradient(90deg, skyblue, transparent),
+    linear-gradient(-90deg, coral, transparent); */
+  background-color: #99d2e4;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: var(--app-second);
+  margin: 10vh auto 10vh;
+  /* margin: 100px auto 20px; */
+  padding: 40px 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px var(--app-accent);
+}
+.todo-app h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--app-first);
+}
+.todo-app h2 img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--input);
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+input {
+  border: none;
+  outline: none; /* нет грацницы, когда печатаешь */
+  background: none;
+  padding: 10px;
+  font-size: 17px;
+  width: 100%;
+}
+
+button {
+  padding: 16px 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+  color: var(--app-second);
+  background: var(--button);
+  border-radius: 40px;
+  &:hover {
+    /* box-shadow: 0px 0px 2px var(--app-accent); */
+    background: var(--button_hover);
+  }
+}
+
+.clear_container {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  margin-bottom: 25px;
+}
+
+ul li {
+  position: relative;
+  padding: 12px 30px 12px 50px;
+  list-style: none;
+  font-size: 17px;
+  /* user-select: none; */ /* можно ли юзеру выделять текст */
+  cursor: pointer;
+  word-wrap: break-word;
+  &:hover {
+    font-size: 18px;
+  }
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  top: 10px;
+  left: 8px;
+  background-image: url(./images/unchecked.png);
+  background-size: cover; /* маштабирутся */
+  background-position: center;
+}
+
+ul li.checked {
+  color: var(--app-accent);
+  text-decoration: line-through;
+}
+ul li.checked::before {
+  color: var(--app-accent);
+  text-decoration: line-through;
+  background-image: url(./images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  right: 0;
+  font-size: 22px;
+  color: var(--app-accent);
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  &:hover {
+    background: var(--input);
+  }
+}
+
+@media (max-width: 465px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    padding: 0;
+  }
+  input {
+    width: 100%;
+    padding-bottom: 22px;
+    background: var(--input);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  button {
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+#clear_dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background-color: var(--app-second);
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px var(--app-accent);
+  border-radius: 10px;
+  z-index: 1000;
+  display: none;
+}
+
+.clear_container button {
+  padding: 10px 20px;
+  width: 100px;
+}
+
+.container_button {
+  display: flex;
+  justify-content: center;
+}
+
+#clear_dialog button {
+  display: flex;
+  align-items: center; /* Выровнять контент по вертикали */
+  justify-content: center;
+  width: 40px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+}
