@@ -16,15 +16,6 @@
   --main-size: 14px;
 }
 
-html {
-  font-size: var(--main-size);
-   @media (max-width: 490px)  { 
-    font-size: 12px;
-   }
-   @media (max-width: 390px)  { 
-    font-size: 10px;
-   }
-}
 
 @keyframes pulse {
   0% {
@@ -55,7 +46,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -64,7 +54,7 @@ body {
   width: 100%;
   max-width: 540px;
   background: var(--app-second);
-  margin: 10vh auto 2vh;
+  margin: 20vh auto 10vh;
   padding: 40px 30px 40px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px var(--app-accent);
@@ -195,6 +185,10 @@ ul li span {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+  .button {
+    width: 100%;
+    border-radius: 40px;
+  }
 }
 
 #clear_dialog {
@@ -232,35 +226,3 @@ ul li span {
   margin-top: 15px;
   cursor: pointer;
 }
-
-
-.footer {  
-  text-align: center;
-  padding: 2rem 0rem;
-}
-.footer p{  
-  font-family: "Inconsolata", monospace;
-}
-
-.footer_social {
-display: flex;
-justify-content: center;
-text-align: center;
-margin-bottom: 1rem;
-.social_item {
-  margin: 0rem 0.71rem;
-}
-}
-.social_item {
-font-size: 2.2rem;
-color: #21243d;
-transition: all 0.2s ease 0s;
-&:hover {
-  color: var(--button_hover)
-}
-}
-
-.footer_made {
-font-size: 1.2rem;
-}
-
